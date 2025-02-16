@@ -3,25 +3,22 @@ requires = ["maturin>=1.4,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "pyo3-project-template"
+name = "pyo3_template"
 dynamic = ["version"]
 description = "HydroRoll Pyo3 Project Template"
-authors = [
-    {name = "yourname", email = "you@hydroroll.team"},
-]
-dependencies = [
-]
+authors = [{ name = "yourname", email = "you@hydroroll.team" }]
+dependencies = []
 requires-python = ">=3.9"
 readme.content-type = "text/x-rst"
 readme.text = """
 """
-license = {text = "MIT"}
+license = { text = "MIT" }
 keywords = ["hydroroll"]
 classifiers = [
-    "Development Status :: 5 - Production/Stable", 
-    "Framework :: Robot Framework", 
-    "Framework :: Robot Framework :: Library", 
-    "Operating System :: OS Independent", 
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Robot Framework",
+    "Framework :: Robot Framework :: Library",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
@@ -33,32 +30,15 @@ homepage = "https://hydroroll.team/"
 repository = "https://github.com/HydroRoll-Team/{project}"
 documentation = "https://{project}.hydroroll.team/"
 
-# [project.scripts]
-# project_cli = ""
+[project.scripts]
+pyo3_template = "pyo3_template.__main__:main"
+pyo3t = "pyo3_template.__main__:main"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
-module-name = "pyo3_project_template.LibCore"
-
-[tool.pdm.dev-dependencies]
-dev = [
-    "pip>=24.0",
-    "maturin>=1.6.0",
-    "ruff>=0.4.9",
-]
-docs = [
-    "docutils>=0.20.1",
-    "furo>=2024.5.6",
-    "sphinx-autobuild>=2024.4.16",
-    "myst-parser>=3.0.1",
-    "sphinx>=7.3.7",
-    "tomli>=2.0.1",
-    "sphinx-intl>=2.2.0",
-    "sphinxcontrib-httpdomain>=1.8.1",
-]
-pygments = [
-    "docutils>=0.20.1",
-]
+module-name = "pyo3_template._core"
+python-package = "pyo3_template"
+python-source = "src"
 
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
@@ -96,7 +76,7 @@ line-length = 88
 indent-width = 4
 
 # Assume Python 3.8
-target-version = "py38"
+target-version = "py39"
 
 [tool.ruff.lint]
 # Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
@@ -122,3 +102,16 @@ skip-magic-trailing-comma = false
 
 # Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
+
+[dependency-groups]
+dev = [
+    "docutils>=0.21.2",
+    "furo>=2024.8.6",
+    "myst-parser>=3.0.1",
+    "ruff>=0.9.6",
+    "sphinx>=7.4.7",
+    "sphinx-autobuild>=2024.10.3",
+    "sphinx-intl>=2.3.1",
+    "sphinxcontrib-httpdomain>=1.8.1",
+    "tomli>=2.2.1",
+]

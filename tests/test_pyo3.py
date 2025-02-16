@@ -1,4 +1,4 @@
-from pyo3_project_template import LibCore
+from pyo3_template._core import sum_as_string
 
 if __name__ == "__main__":
-    print(LibCore.sum_as_string(1, 2))
+    print(sum_as_string(1, 2))
